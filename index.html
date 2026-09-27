@@ -127,37 +127,86 @@
     <!-- TRANG 4: TRANG CHU (HOME SCREEN)                         -->
     <!-- ======================================================== -->
     <section id="screen-home" class="screen">
+        <!-- Floating Hearts Background -->
+        <div class="hearts-bg" aria-hidden="true">
+            <span class="heart-float">💗</span>
+            <span class="heart-float">🌸</span>
+            <span class="heart-float">💕</span>
+            <span class="heart-float">✨</span>
+            <span class="heart-float">💖</span>
+            <span class="heart-float">🌷</span>
+            <span class="heart-float">💝</span>
+            <span class="heart-float">🌸</span>
+            <span class="heart-float">💗</span>
+            <span class="heart-float">✨</span>
+        </div>
+
         <div class="home-split-container">
             <!-- Left Side: Menu & Greetings -->
             <div class="home-left-panel">
+
+                <!-- Top ribbon -->
+                <div class="love-ribbon">
+                    <span class="ribbon-dot">♥</span>
+                    <span>Happy Birthday</span>
+                    <span class="ribbon-dot">♥</span>
+                </div>
+
                 <div class="welcome-header">
-                    <span class="sparkle-badge">Happy Birthday ✨</span>
-                    <h1 class="home-title">Nguyễn Ngọc Thúy Vi 🎉</h1>
-                    <p class="home-subtitle">Góc nhỏ mừng sinh nhật dành riêng cho Vi!</p>
+                    <div class="avatar-ring">
+                        <div class="avatar-glow"></div>
+                        <span class="avatar-emoji">🌸</span>
+                    </div>
+                    <h1 class="home-title">Nguyễn Ngọc<br>Thúy Vi</h1>
+                    <p class="home-subtitle">💕 Góc nhỏ dành riêng cho ngày đặc biệt của em 💕</p>
                 </div>
 
                 <div class="home-menu-grid">
-                    <!-- Card 1: Loi Chuc -->
-                    <div id="card-wishes" class="menu-card glass-box hover-lift">
-                        <div class="card-icon">💌</div>
-                        <h3>Lời Chúc Sinh Nhật</h3>
-                        <p>Thông điệp ngọt ngào gửi riêng cho Vi.</p>
-                        <button class="btn btn-secondary">Xem Lời Chúc ✨</button>
+                    <div class="menu-card-love" id="card-wishes">
+                        <div class="card-love-icon">💌</div>
+                        <div class="card-love-content">
+                            <h3>Lời Chúc Sinh Nhật</h3>
+                            <p>Những thông điệp ngọt ngào gửi riêng cho Vi</p>
+                        </div>
+                        <div class="card-love-arrow">→</div>
                     </div>
 
-                    <!-- Card 2: Hinh Anh -->
-                    <div id="card-gallery" class="menu-card glass-box hover-lift">
-                        <div class="card-icon">🖼️</div>
-                        <h3>Kỷ Niệm Hình Ảnh</h3>
-                        <p>Khoảnh khắc đáng yêu & rạng rỡ.</p>
-                        <button class="btn btn-secondary">Xem Hình Ảnh 📸</button>
+                    <div class="menu-card-love" id="card-gallery">
+                        <div class="card-love-icon">🖼️</div>
+                        <div class="card-love-content">
+                            <h3>Kỷ Niệm Hình Ảnh</h3>
+                            <p>Những khoảnh khắc đáng yêu &amp; rạng rỡ</p>
+                        </div>
+                        <div class="card-love-arrow">→</div>
                     </div>
+                </div>
+
+                <!-- Bottom decoration -->
+                <div class="bottom-hearts">
+                    <span>🌸</span><span>💗</span><span>🌷</span><span>💗</span><span>🌸</span>
                 </div>
             </div>
 
             <!-- Right Side: Full Photo Display -->
             <div class="home-right-panel">
-                <div class="full-photo-view"></div>
+                <!-- Decorative frame -->
+                <div class="photo-frame-outer">
+                    <div class="photo-frame-inner">
+                        <div class="full-photo-view">
+                            <img src="3.jpeg" alt="Nguyễn Ngọc Thúy Vi" class="full-photo-img">
+                        </div>
+                    </div>
+                    <!-- Corner roses -->
+                    <span class="frame-corner corner-tl">🌹</span>
+                    <span class="frame-corner corner-tr">🌹</span>
+                    <span class="frame-corner corner-bl">🌹</span>
+                    <span class="frame-corner corner-br">🌹</span>
+                </div>
+
+                <!-- Name tag below photo -->
+                <div class="photo-name-tag">
+                    <span class="name-tag-text">✨ Thúy Vi ✨</span>
+                </div>
             </div>
         </div>
     </section>
@@ -237,3 +286,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
