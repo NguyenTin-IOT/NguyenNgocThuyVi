@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Xác Minh - Mở Quà Sinh Nhật</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background: radial-gradient(circle at center, #2d1337 0%, #0f0c1b 100%); display:flex; justify-content:center; align-items:center; min-height:100vh; margin:0;">
+
+    <div class="login-card glass-box">
+        <div class="card-badge">✨ Gift Box ✨</div>
+        <h1 class="login-title">Chào Mừng Sinh Nhật! 🎉</h1>
+        <p class="login-subtitle">Vui lòng nhập chính xác thông tin để mở món quà này nhé ❤️</p>
+        
+        <form id="standalone-login-form">
+            <div class="form-group">
+                <label for="fullname">Họ và Tên:</label>
+                <input type="text" id="fullname" placeholder="Full name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dob">Ngày Sinh:</label>
+                <input type="text" id="dob" placeholder="Ngày sinh nhật" required>
+            </div>
+
+            <div id="login-error" class="error-msg hidden"></div>
+
+            <button type="submit" class="btn btn-primary btn-glow" style="width: 100%;">
+                Xác Nhận / Mở Quà 🎁
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('standalone-login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('fullname').value.trim().toLowerCase().replace(/\s+/g, ' ');
+            const dob = document.getElementById('dob').value.trim();
+            const err = document.getElementById('login-error');
+
+            if (name === "nguyễn ngọc thúy vi" && ["28/09/2005", "28/9/2005", "28-09-2005"].includes(dob)) {
+                window.location.href = "index.html";
+            } else {
+                err.textContent = "Thông tin chưa chính xác rồi, bạn kiểm tra và thử lại nhé! ❤️";
+                err.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

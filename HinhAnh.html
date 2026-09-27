@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thư Viện Ảnh - Thúy Vi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="background: radial-gradient(circle at center, #1b132a 0%, #090612 100%); min-height:100vh; margin:0; padding:40px 20px;">
+
+    <!-- Nhạc nền xem ảnh -->
+    <audio id="bg-audio" src="Xemanh.mp3" autoplay loop></audio>
+
+    <div class="gallery-container" style="margin: 0 auto;">
+        <div class="gallery-header glass-box">
+            <h2>📸 Thư Viện Kỷ Niệm Thúy Vi</h2>
+            <p>Những khoảnh khắc xinh đẹp &amp; ngọt ngào ✨</p>
+            <a href="TrangChu.html" class="btn btn-outline">
+                ⬅️ Quay Lại Trang Chủ
+            </a>
+        </div>
+
+        <div id="gallery-grid" class="gallery-grid">
+            <!-- ========================================================================= -->
+            <!-- DANH SÁCH HÌNH ẢNH (Muốn thêm ảnh mới chỉ cần Copy 1 khối div bên dưới)    -->
+            <!-- ========================================================================= -->
+
+            <!-- Ảnh 1 -->
+            <div class="gallery-item" onclick="openModal('1.jpg', 'Khoảnh khắc đáng yêu 🌸')">
+                <img src="1.jpg" alt="Thúy Vi">
+                <div class="item-overlay"><span>Khoảnh khắc đáng yêu 🌸</span></div>
+            </div>
+
+            <!-- Ảnh 2 -->
+            <div class="gallery-item" onclick="openModal('2.jpeg', 'Nụ cười rạng rỡ 💖')">
+                <img src="2.jpeg" alt="Thúy Vi">
+                <div class="item-overlay"><span>Nụ cười rạng rỡ 💖</span></div>
+            </div>
+
+            <!-- Ảnh 3 -->
+            <div class="gallery-item" onclick="openModal('3.jpeg', 'Thúy Vi xinh xắn ✨')">
+                <img src="3.jpeg" alt="Thúy Vi">
+                <div class="item-overlay"><span>Thúy Vi xinh xắn ✨</span></div>
+            </div>
+
+            <!-- Ảnh 4 -->
+            <div class="gallery-item" onclick="openModal('4.jpeg', 'Kỷ niệm tuyệt đẹp 🎂')">
+                <img src="4.jpeg" alt="Thúy Vi">
+                <div class="item-overlay"><span>Kỷ niệm tuyệt đẹp 🎂</span></div>
+            </div>
+
+            <!-- Ảnh 5 -->
+            <div class="gallery-item" onclick="openModal('5.png', 'Bức ảnh kiệt tác 👑')">
+                <img src="5.png" alt="Thúy Vi">
+                <div class="item-overlay"><span>Bức ảnh kiệt tác 👑</span></div>
+            </div>
+
+            <!-- MẪU THÊM ẢNH MỚI: (Muốn thêm ảnh 6, 7, 8... thì chỉ cần copy mẫu dưới này) -->
+            <!--
+            <div class="gallery-item" onclick="openModal('6.jpeg', 'Chú thích ảnh 6')">
+                <img src="6.jpeg" alt="Thúy Vi">
+                <div class="item-overlay"><span>Chú thích ảnh 6</span></div>
+            </div>
+            -->
+        </div>
+    </div>
+
+    <!-- Lightbox Modal Phóng To Ảnh -->
+    <div id="lightbox-modal" class="lightbox-modal hidden">
+        <span class="lightbox-close" onclick="closeModal()">&times;</span>
+        <div class="lightbox-content-box">
+            <img id="lightbox-img" src="" alt="Photo">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(src, caption) {
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            document.getElementById('lightbox-caption').textContent = caption;
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        document.getElementById('lightbox-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        const bgAudio = document.getElementById('bg-audio');
+        if (bgAudio) {
+            bgAudio.play().catch(e => console.log('Autoplay blocked:', e));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Mừng Sinh Nhật Nguyễn Ngọc Thúy Vi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body id="screen-home" style="min-height: 100vh; margin: 0; padding: 0;">
+
+    <audio id="bg-audio" src="special_effect.mp3" autoplay loop></audio>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" aria-hidden="true">
+        <span class="heart-float">💗</span>
+        <span class="heart-float">🌸</span>
+        <span class="heart-float">💕</span>
+        <span class="heart-float">✨</span>
+        <span class="heart-float">💖</span>
+        <span class="heart-float">🌷</span>
+        <span class="heart-float">💝</span>
+        <span class="heart-float">🌸</span>
+        <span class="heart-float">💗</span>
+        <span class="heart-float">✨</span>
+    </div>
+
+    <div class="home-split-container">
+        <!-- Left Side: Menu & Greetings -->
+        <div class="home-left-panel">
+
+            <!-- Top ribbon -->
+            <div class="love-ribbon">
+                <span class="ribbon-dot">♥</span>
+                <span>Happy Birthday</span>
+                <span class="ribbon-dot">♥</span>
+            </div>
+
+            <div class="welcome-header">
+                <div class="avatar-ring">
+                    <div class="avatar-glow"></div>
+                    <span class="avatar-emoji">🌸</span>
+                </div>
+                <h1 class="home-title">Nguyễn Ngọc<br>Thúy Vi</h1>
+                <p class="home-subtitle">💕 Góc nhỏ dành riêng cho ngày đặc biệt của em 💕</p>
+            </div>
+
+            <div class="home-menu-grid">
+                <div onclick="window.location.href='LoiChuc.html'" class="menu-card-love" id="card-loichuc">
+                    <div class="card-love-icon">💌</div>
+                    <div class="card-love-content">
+                        <h3>Lời Chúc Sinh Nhật</h3>
+                        <p>Những thông điệp ngọt ngào gửi riêng cho Vi</p>
+                    </div>
+                    <div class="card-love-arrow">→</div>
+                </div>
+
+                <div onclick="window.location.href='HinhAnh.html'" class="menu-card-love" id="card-hinhanh">
+                    <div class="card-love-icon">🖼️</div>
+                    <div class="card-love-content">
+                        <h3>Kỷ Niệm Hình Ảnh</h3>
+                        <p>Những khoảnh khắc đáng yêu &amp; rạng rỡ</p>
+                    </div>
+                    <div class="card-love-arrow">→</div>
+                </div>
+            </div>
+
+            <!-- Bottom decoration -->
+            <div class="bottom-hearts">
+                <span>🌸</span><span>💗</span><span>🌷</span><span>💗</span><span>🌸</span>
+            </div>
+        </div>
+
+        <!-- Right Side: Full Photo Display -->
+        <div class="home-right-panel">
+            <!-- Decorative frame -->
+            <div class="photo-frame-outer">
+                <div class="photo-frame-inner">
+                    <div class="full-photo-view">
+                        <img src="3.jpeg" alt="Nguyễn Ngọc Thúy Vi" class="full-photo-img">
+                    </div>
+                </div>
+                <!-- Corner roses -->
+                <span class="frame-corner corner-tl">🌹</span>
+                <span class="frame-corner corner-tr">🌹</span>
+                <span class="frame-corner corner-bl">🌹</span>
+                <span class="frame-corner corner-br">🌹</span>
+            </div>
+
+            <!-- Name tag below photo -->
+            <div class="photo-name-tag">
+                <span class="name-tag-text">✨ Thúy Vi ✨</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bgAudio = document.getElementById('bg-audio');
+        if (bgAudio) {
+            bgAudio.play().catch(e => console.log('Autoplay blocked:', e));
+        }
+    </script>
+</body>
+</html>

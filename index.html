@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật Nguyễn Ngọc Thúy Vi 🎉</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;500;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Audio Elements -->
+    <audio id="audio-happybirthday" src="happybirtday.mp3" preload="auto" loop></audio>
+    <audio id="audio-home" src="special_effect.mp3" preload="auto" loop></audio>
+    <audio id="audio-gallery" src="Xemanh.mp3" preload="auto" loop></audio>
+    <audio id="audio-wishes" src="loichuc.mp3" preload="auto" loop></audio>
+
+    <!-- Floating Global Audio Toggle -->
+    <button id="music-toggle-btn" class="music-toggle hidden" title="Bật/Tắt Nhạc">
+        <span class="music-icon">🎵</span>
+        <span class="music-waves">
+            <span></span><span></span><span></span>
+        </span>
+    </button>
+
+    <!-- Canvas Background for Particle Effects -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- ======================================================== -->
+    <!-- TRANG 1: DANG NHAP (LOGIN SCREEN)                        -->
+    <!-- ======================================================== -->
+    <section id="screen-login" class="screen active">
+        <div class="login-card glass-box">
+            <div class="card-badge">✨ Gift Box ✨</div>
+            <h1 class="login-title">Chào Mừng Sinh Nhật! 🎉</h1>
+            <p class="login-subtitle">Vui lòng nhập chính xác thông tin để mở món quà đặc biệt này nhé ❤️</p>
+            
+            <form id="login-form" autocomplete="off">
+                <div class="form-group">
+                    <label for="fullname">Họ và Tên:</label>
+                    <input type="text" id="fullname" placeholder="Full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dob">Ngày Sinh:</label>
+                    <input type="text" id="dob" placeholder="Ngày sinh nhật" required>
+                </div>
+
+                <div id="login-error" class="error-msg hidden"></div>
+
+                <button type="submit" class="btn btn-primary btn-glow">
+                    <span>Xác Nhận / Mở Quà 🎁</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TRANG 2: TRANG CHO (WAITING SCREEN)                      -->
+    <!-- ======================================================== -->
+    <section id="screen-waiting" class="screen">
+        <div class="waiting-container">
+            <div class="wish-prompt-box">
+                <h2 class="dreamy-text">"Hãy nhắm mắt lại và ước 1 điều mà bạn muốn..."</h2>
+                <p class="sub-prompt">Giữ trong lòng điều ước đẹp nhất nhé ❤️</p>
+            </div>
+
+            <!-- 20s Countdown Circle -->
+            <div class="countdown-wrapper">
+                <svg class="countdown-svg" viewBox="0 0 100 100">
+                    <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                    <circle id="countdown-progress" class="circle-progress" cx="50" cy="50" r="45"></circle>
+                </svg>
+                <div id="countdown-number" class="countdown-number">15</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TRANG 3: THOI NEN (CANDLE BLOWING SCREEN)               -->
+    <!-- ======================================================== -->
+    <section id="screen-candle" class="screen wind-cursor">
+        <div class="candle-container">
+            <h2 class="candle-instruction">Thổi nến đi nào! 🌬️<br><small>(Nhấp vào ngọn lửa nến để thổi tắt)</small></h2>
+            
+            <div class="cake-wrapper">
+                <!-- Girly Heart & Berry Birthday Cake -->
+                <div class="cake">
+                    <div class="plate"></div>
+                    <div class="cake-toppers">
+                        <span class="topper topper-left">💖</span>
+                        <span class="topper topper-center">🍓</span>
+                        <span class="topper topper-right">💕</span>
+                    </div>
+                    <div class="layer layer-bottom">
+                        <div class="frosting"></div>
+                        <div class="heart-decor"><span>❤️</span><span>💖</span><span>❤️</span></div>
+                    </div>
+                    <div class="layer layer-middle">
+                        <div class="frosting"></div>
+                        <div class="cream-pearls"><span></span><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="layer layer-top">
+                        <div class="frosting"></div>
+                        <div class="drips">
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <!-- Candle -->
+                    <div class="candle">
+                        <div class="wick"></div>
+                        <div id="flame" class="flame">
+                            <div class="flame-inner"></div>
+                            <div class="flame-glow"></div>
+                        </div>
+                        <div id="smoke" class="smoke hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TRANG 4: TRANG CHU (HOME SCREEN)                         -->
+    <!-- ======================================================== -->
+    <section id="screen-home" class="screen">
+        <div class="home-split-container">
+            <!-- Left Side: Menu & Greetings -->
+            <div class="home-left-panel">
+                <div class="welcome-header">
+                    <span class="sparkle-badge">Happy Birthday ✨</span>
+                    <h1 class="home-title">Nguyễn Ngọc Thúy Vi 🎉</h1>
+                    <p class="home-subtitle">Góc nhỏ mừng sinh nhật dành riêng cho Vi!</p>
+                </div>
+
+                <div class="home-menu-grid">
+                    <!-- Card 1: Loi Chuc -->
+                    <div id="card-wishes" class="menu-card glass-box hover-lift">
+                        <div class="card-icon">💌</div>
+                        <h3>Lời Chúc Sinh Nhật</h3>
+                        <p>Thông điệp ngọt ngào gửi riêng cho Vi.</p>
+                        <button class="btn btn-secondary">Xem Lời Chúc ✨</button>
+                    </div>
+
+                    <!-- Card 2: Hinh Anh -->
+                    <div id="card-gallery" class="menu-card glass-box hover-lift">
+                        <div class="card-icon">🖼️</div>
+                        <h3>Kỷ Niệm Hình Ảnh</h3>
+                        <p>Khoảnh khắc đáng yêu & rạng rỡ.</p>
+                        <button class="btn btn-secondary">Xem Hình Ảnh 📸</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Full Photo Display -->
+            <div class="home-right-panel">
+                <div class="full-photo-view"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TRANG 5: LOI CHUC (WISHES SCREEN)                        -->
+    <!-- ======================================================== -->
+    <section id="screen-wishes" class="screen">
+        <div class="wishes-container glass-box">
+            <div class="wishes-header">
+                <div class="heart-badge">💖 Gửi Thúy Vi 💖</div>
+                <h2>Chúc Mừng Sinh Nhật Vi! 🌸</h2>
+            </div>
+            
+            <div class="wishes-body">
+                <p class="wish-paragraph">
+                    🎂 <strong>Gửi Thúy Vi (28/09/2005) – cô gái nhỏ nhắn nhưng luôn mang theo nụ cười rạng rỡ làm ấm áp mọi người xung quanh!</strong>
+                </p>
+                <p class="wish-paragraph">
+                    Happy Birthday Thúy Vi! 🎉 Chúc cô gái nhỏ bước sang tuổi mới luôn tự tin, xinh đẹp và thật nhiều sức khỏe. Dù chặng đường phía trước có đôi lúc mệt mỏi, mong Vi vẫn giữ vững nụ cười rạng rỡ này. Chúc cho mọi ước mơ của bà đều sớm trở thành hiện thực!
+                </p>
+                <p class="wish-paragraph">
+                    Cảm ơn Vi vì đã xuất hiện.
+                </p>
+                <p class="wish-paragraph">
+                    "Quá khứ có thể đã để lại những vết hằn chẳng mấy vui vẻ, nhưng tui vẫn luôn trân trọng một Nguyễn Ngọc Thúy Vi thật hiểu chuyện. Dù đôi lúc bà có chút bướng bỉnh, nhưng tui biết sâu thẫm bên trong là một khoảng trời nội tâm chứa đựng vô vàn tâm sự.
+                </p>
+                <p class="wish-paragraph">
+                    Cho dù sau này cuộc sống có đổi thay hay xảy ra chuyện gì đi nữa, tui vẫn giữ trọn vẹn câu nói năm xưa: 'Tui vẫn luôn ở đây, luôn sẵn sàng lắng nghe bà nói, cùng nói chuyện và sẻ chia mọi điều với bạn.' Tui chưa từng quên bất kỳ lời hứa nào.
+                </p>
+                <p class="wish-paragraph">
+                    Tuổi mới rồi, hãy cứ tự tin làm những gì bạn muốn, và nhớ hãy chia sẻ nhiều hơn để tui có cơ hội được hiểu bạn sâu sắc hơn nhé. Bởi vì đối với tui, trên thế giới này chỉ có duy nhất một Nguyễn Ngọc Thúy Vi — một phiên bản hoàn hảo và luôn là số 1 trên đời!"
+                </p>
+                <p class="wish-paragraph highlight-wish">
+                    ✨ <em>"Mong rằng mỗi ngày trải qua với Vi đều tràn ngập nụ cười và những điều ngọt ngào nhất!"</em> ✨
+                </p>
+            </div>
+
+            <div class="wishes-footer">
+                <button id="btn-back-wishes" class="btn btn-outline">
+                    ⬅️ Quay Lại Trang Chủ
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TRANG 6: HINH ANH (GALLERY SCREEN)                       -->
+    <!-- ======================================================== -->
+    <section id="screen-gallery" class="screen">
+        <div class="gallery-container">
+            <div class="gallery-header glass-box">
+                <h2>📸 Thư Viện Kỷ Niệm Thúy Vi</h2>
+                <p>Những khoảnh khắc xinh đẹp & ngọt ngào ✨</p>
+                <button id="btn-back-gallery" class="btn btn-outline">
+                    ⬅️ Quay Lại Trang Chủ
+                </button>
+            </div>
+
+            <div id="gallery-grid" class="gallery-grid">
+                <!-- Rendered dynamically by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal for Photo Zooming -->
+    <div id="lightbox-modal" class="lightbox-modal hidden">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-prev">&#10094;</button>
+        <div class="lightbox-content-box">
+            <img id="lightbox-img" src="" alt="Khoảnh khắc Thúy Vi">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+        <button class="lightbox-next">&#10095;</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
