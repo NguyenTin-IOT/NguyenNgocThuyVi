@@ -1565,12 +1565,155 @@ body, html {
     z-index: 2;
 }
 
-/* Responsive pages */
-@media (max-width: 768px) {
-    .wish-card-inner { padding: 28px 20px; }
-    .wish-page-title { font-size: 2.2rem; }
-    .gallery-page-title { font-size: 2.2rem; }
-    .gallery-grid-new { grid-template-columns: repeat(auto-fill,minmax(160px,1fr)); gap: 14px; }
-    .gallery-img-wrap { height: 190px; }
-    .back-btn { top: 14px; left: 14px; padding: 7px 14px; font-size: 0.8rem; }
+/* Responsive / Mobile Optimization */
+@media (max-width: 850px) {
+    /* Màn hình Trang Chủ trên Điện Thoại */
+    #screen-home {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .home-split-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        width: 100%;
+        overflow-y: visible;
+        padding-bottom: 30px;
+    }
+
+    .home-left-panel {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 150, 180, 0.2);
+        box-shadow: none;
+        padding: 32px 18px 20px 18px;
+    }
+
+    .love-ribbon {
+        font-size: 0.75rem;
+        padding: 6px 18px;
+        margin-bottom: 20px;
+    }
+
+    .avatar-ring {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 14px;
+    }
+
+    .avatar-emoji {
+        font-size: 2.4rem;
+    }
+
+    .home-title {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+    .home-subtitle {
+        font-size: 0.85rem;
+        padding: 0 10px;
+    }
+
+    .welcome-header {
+        margin-bottom: 20px;
+    }
+
+    .home-menu-grid {
+        max-width: 100%;
+        width: 100%;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .menu-card-love {
+        padding: 14px 16px;
+        border-radius: 16px;
+    }
+
+    .card-love-icon {
+        font-size: 1.7rem;
+    }
+
+    .card-love-content h3 {
+        font-size: 0.95rem;
+    }
+
+    .card-love-content p {
+        font-size: 0.75rem;
+    }
+
+    /* Panel bên phải (Ảnh) trên điện thoại */
+    .home-right-panel {
+        width: 100%;
+        height: auto;
+        padding: 20px 16px 30px 16px;
+    }
+
+    .photo-frame-outer {
+        max-width: 90vw;
+        padding: 8px;
+    }
+
+    .full-photo-view {
+        max-width: 84vw;
+        max-height: 50vh;
+    }
+
+    .full-photo-img {
+        max-width: 100%;
+        max-height: 50vh;
+        object-fit: contain;
+    }
+
+    .photo-name-tag {
+        margin-top: 14px;
+        padding: 6px 20px;
+    }
+
+    .name-tag-text {
+        font-size: 1.1rem;
+    }
+
+    .frame-corner {
+        font-size: 1.2rem;
+    }
+
+    /* Đăng nhập & Các màn hình khác trên mobile */
+    .glass-box {
+        padding: 24px 18px;
+    }
+
+    .login-title {
+        font-size: 2.2rem;
+    }
+
+    .dreamy-text {
+        font-size: 2.1rem;
+    }
+
+    .candle-instruction {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+    }
+
+    .cake-wrapper {
+        transform: scale(0.85);
+        transform-origin: center bottom;
+    }
+
+    /* Trắc nghiệm & Lời chúc & Thư viện ảnh */
+    .wish-card-inner { padding: 24px 16px; }
+    .wish-page-title { font-size: 2rem; }
+    .gallery-page-title { font-size: 2rem; }
+    .gallery-grid-new { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+    .gallery-img-wrap { height: 170px; }
+    .back-btn { top: 12px; left: 12px; padding: 6px 12px; font-size: 0.78rem; }
 }
