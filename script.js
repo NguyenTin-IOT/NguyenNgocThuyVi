@@ -91,14 +91,45 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         loginError.classList.add('hidden');
 
-        const nameVal = fullnameInput.value.trim().toLowerCase().replace(/\s+/g, ' ');
-        const dobVal = dobInput.value.trim();
+        // Chuẩn hóa chuỗi nhập vào: Unicode NFC, chữ thường, thay thuý -> thúy
+        let nameVal = fullnameInput.value.trim().toLowerCase().normalize('NFC').replace(/\s+/g, ' ');
+        nameVal = nameVal.replace(/thuý/g, 'thúy');
 
-        // Validations
-        const validName = "nguyễn ngọc thúy vi";
-        const validDOBs = ["28/09/2005", "28/9/2005", "28-09-2005", "28.09.2005"];
+        // Hàm bỏ dấu tiếng Việt để hỗ trợ người dùng gõ không dấu
+        const removeAccents = (str) => {
+            return str
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/đ/g, 'd')
+                .replace(/Đ/g, 'D');
+        };
 
-        if (nameVal === validName && validDOBs.includes(dobVal)) {
+        const nameNoAccent = removeAccents(nameVal);
+
+        const validNamesAccented = [
+            "nguyễn ngọc thúy vi",
+            "thúy vi",
+            "vi"
+        ];
+
+        const validNamesUnaccented = [
+
+            "nguyen ngoc thuy vi",
+            "thuy vi",
+            "vi"
+        ];
+
+        const isNameValid = validNamesAccented.includes(nameVal) || validNamesUnaccented.includes(nameNoAccent);
+
+        const dobVal = dobInput.value.trim().replace(/\s+/g, '');
+        const validDOBs = [
+            "28/09/2005", "28/9/2005", "28-09-2005", "28.09.2005", 
+            "28092005", "28/09/05", "28/9/05", "28-9-2005", "28.9.2005"
+        ];
+
+        const isDobValid = validDOBs.includes(dobVal);
+
+        if (isNameValid && isDobValid) {
             // Start audio immediately to unlock browser audio policy
             playMusic('happybirthday');
             
